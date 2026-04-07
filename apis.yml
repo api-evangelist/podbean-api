@@ -8,8 +8,7 @@ type: Index
 position: Consumer
 access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-tags:
-  - API
+tags: []
 created: '2025-05-02'
 modified: '2025-05-02'
 url: >-
@@ -23,8 +22,7 @@ apis:
       podcast. To manage your own podcast via API, Please go to 5. Client Credentials
       and 6. Get Multiple Podcasts Tokens.
     humanURL: ' https://developers.podbean.com/podbean-api-docs/'
-    tags:
-      - API
+    tags: []
     properties:
       - type: Documentation
         url: ' https://developers.podbean.com/podbean-api-docs/'
