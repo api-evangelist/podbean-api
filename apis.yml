@@ -1,9 +1,9 @@
 aid: podbean-api
 name: Podbean API
 description: >-
-  This is for third-party apps to connect to Podbean in order to manage a users
-  podcast. To manage your own podcast via API, Please go to 5. Client
-  Credentials and 6. Get Multiple Podcasts Tokens 
+  This is for third-party apps to connect to Podbean in order to manage a users podcast.
+  To manage your own podcast via API, Please go to 5. Client Credentials and 6. Get
+  Multiple Podcasts Tokens.
 type: Index
 position: Consumer
 access: 3rd-Party
@@ -19,9 +19,9 @@ apis:
   - aid: podbean-api:podbean-api
     name: Podbean API
     description: >-
-      This is for third-party apps to connect to Podbean in order to manage a
-      users podcast. To manage your own podcast via API, Please go to 5. Client
-      Credentials and 6. Get Multiple Podcasts Tokens 
+      This is for third-party apps to connect to Podbean in order to manage a users
+      podcast. To manage your own podcast via API, Please go to 5. Client Credentials
+      and 6. Get Multiple Podcasts Tokens.
     humanURL: ' https://developers.podbean.com/podbean-api-docs/'
     tags:
       - API
