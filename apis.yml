@@ -41,6 +41,8 @@ apis:
       - type: Authentication
         url: https://developers.podbean.com/podbean-api-docs/#api-Authentication
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/podbean
   - type: Website
     url: https://www.podbean.com
   - type: Documentation
