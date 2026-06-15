@@ -1,0 +1,1041 @@
+{
+  "item": [
+    {
+      "id": "2b0ce6a5-24fc-4f2a-9859-1392267b4c09",
+      "name": "OAuth",
+      "description": {
+        "content": "Token issuance endpoints.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9908fc54-2abb-444d-a40b-8ea19c7ef41e",
+          "name": "Request an access token",
+          "request": {
+            "name": "Request an access token",
+            "description": {
+              "content": "OAuth 2.0 token endpoint. Use HTTP Basic with client_id /\nclient_secret and POST `grant_type=client_credentials`.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "oauth",
+                "token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "grant_type",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "code",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "redirect_uri",
+                  "value": "<uri>"
+                },
+                {
+                  "disabled": false,
+                  "key": "refresh_token",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d39fe70d-b50b-43e1-bca4-5b811effa114",
+              "name": "Access token issued",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "oauth",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "grant_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "redirect_uri",
+                      "value": "<uri>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "refresh_token",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access_token\": \"string\",\n  \"token_type\": \"string\",\n  \"expires_in\": 4432,\n  \"scope\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c566dd51-8116-4b97-95a9-057c6d7468f0",
+          "name": "Request per-podcast access tokens",
+          "request": {
+            "name": "Request per-podcast access tokens",
+            "description": {
+              "content": "Returns a map of per-podcast access tokens for accounts with\nmultiple podcasts under the same Podbean app.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "oauth",
+                "multiplePodcastsToken"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "grant_type",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "podcast_id",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fb016785-3c0d-46fd-a045-4a38bee480e4",
+              "name": "Per-podcast tokens",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "oauth",
+                    "multiplePodcastsToken"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "grant_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "podcast_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"podcast_tokens\": [\n    {\n      \"podcast_id\": \"string\",\n      \"access_token\": \"string\",\n      \"expires_in\": 255\n    },\n    {\n      \"podcast_id\": \"string\",\n      \"access_token\": \"string\",\n      \"expires_in\": 1214\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "409971b7-50a1-45ef-93b6-f086158a99fc",
+      "name": "Podcasts",
+      "description": {
+        "content": "List podcasts in the account.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f472901b-3809-403a-944c-db46f976501b",
+          "name": "List podcasts",
+          "request": {
+            "name": "List podcasts",
+            "description": {
+              "content": "List the podcasts owned by the authenticated account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "podcasts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "access_token",
+                  "value": "<string>",
+                  "description": "Access token issued by /v1/oauth/token (may also be sent via Authorization header)."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1a5435e5-9602-4b88-9ec4-4ccce178af32",
+              "name": "A page of podcasts",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "podcasts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "access_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 3046,\n  \"offset\": 7363,\n  \"limit\": 7666,\n  \"has_more\": true,\n  \"podcasts\": [\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"desc\": \"string\",\n      \"logo\": \"https://kDcpjRdyiQPvSmqHC.roowBcz3akqjb9VLCh1Kpy3eTl8iafLN8kmW8LdK9nrtEoEGGsEnIuBy3u4,1wLjUh7qlBqabcYz7ssjHwkV7-08ZG\",\n      \"website\": \"https://bUCvwAHAENplQUuQUiDaOEPXF.gchD2U8GwWi-w+sU8yW0BTcr323SAAh6zg7OOfoCax\",\n      \"category_name\": \"string\",\n      \"allow_episode_type\": [\n        \"string\",\n        \"string\"\n      ],\n      \"copyright\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"desc\": \"string\",\n      \"logo\": \"https://eeiCzcIAoBSvKtk.ejkmYDfROhceVjDSU7Ffr+1Grd4,PVaoYdqxN+6I6Fp3JveoMdijW8xzf9AcGEPr4R0yaZAE+H\",\n      \"website\": \"http://QwiYtlTSFPbhiER.wemieLGm97CdYQrpiAz7OsGgOaqhWHlHWLNRcGCx11W.i5LSh\",\n      \"category_name\": \"string\",\n      \"allow_episode_type\": [\n        \"string\",\n        \"string\"\n      ],\n      \"copyright\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "12009b7a-f689-4d79-a8ae-f59308e45275",
+      "name": "Episodes",
+      "description": {
+        "content": "List and inspect episodes.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "86c79358-ad6e-49ba-bde4-ed115fdbc343",
+          "name": "List episodes",
+          "request": {
+            "name": "List episodes",
+            "description": {
+              "content": "List episodes for the authenticated podcast.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "episodes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "access_token",
+                  "value": "<string>",
+                  "description": "Access token issued by /v1/oauth/token (may also be sent via Authorization header)."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cac0d99c-ea4c-4af5-8214-3a55a7743e33",
+              "name": "A page of episodes",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "episodes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "access_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 2699,\n  \"offset\": 2007,\n  \"limit\": 8924,\n  \"has_more\": false,\n  \"episodes\": [\n    {\n      \"id\": \"string\",\n      \"podcast_id\": \"string\",\n      \"title\": \"string\",\n      \"content\": \"string\",\n      \"logo\": \"http://fyMqdtsRTkOQPPCgsblaxLKMGUxbte.adqdaFzekY9oBjELLrW5LE.ZzoHrSQl+Sy10J3Xhp0k--0sBoEQ5l26Uh5J\",\n      \"media_url\": \"http://tgqozCTmEOvyCjYVDcjpeBZ.qlyb6bYcBs\",\n      \"player_url\": \"https://bcceWHOJHKySSdDBSL.aarhGjln8zb6H-QZtKQObEFhSpzJQC57CkIy8d\",\n      \"permalink_url\": \"http://kIemdkMNXJUhViO.merBjgacSgGLCsgtDuoyMU67uE-ApINp7KR\",\n      \"publish_time\": 1587,\n      \"duration\": 7668,\n      \"status\": \"string\",\n      \"type\": \"private\",\n      \"season_number\": 412,\n      \"episode_number\": 1127,\n      \"apple_episode_type\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"podcast_id\": \"string\",\n      \"title\": \"string\",\n      \"content\": \"string\",\n      \"logo\": \"https://fXXuk.ghibQQ5wD2lz2l2dXGH.lzTQMt1U9APMv.C\",\n      \"media_url\": \"https://XxfpdDaYx.hbpaHzp2OxP\",\n      \"player_url\": \"http://sxtyhkKogXnfNPHWPYKLbfl.wzvvzmnjynCep6+6Sy4WTA-B9kdrWLZ8.Hmbk0wKutdssl3CV,Dr\",\n      \"permalink_url\": \"http://vCbVOYOvGTfwetVAayHrOk.lyhhbSfBOwok3fulK-wHjGEFQ4vhcKLju658kATeXN2\",\n      \"publish_time\": 9195,\n      \"duration\": 9043,\n      \"status\": \"string\",\n      \"type\": \"public\",\n      \"season_number\": 3035,\n      \"episode_number\": 390,\n      \"apple_episode_type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "3bb0c386-5b48-45a1-acf6-4588f98fcca8",
+      "name": "PrivateMembers",
+      "description": {
+        "content": "Manage private podcast members.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "038a733b-c85e-4a2a-ae54-5dbaa1e16ff6",
+          "name": "List private members",
+          "request": {
+            "name": "List private members",
+            "description": {
+              "content": "List the private members on the authenticated podcast.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "privateMembers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "access_token",
+                  "value": "<string>",
+                  "description": "Access token issued by /v1/oauth/token (may also be sent via Authorization header)."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e7ea7170-4fe2-4fce-98cb-f52ecd280a6d",
+              "name": "A page of private members",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "privateMembers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "access_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"private_members\": [\n    {\n      \"email\": \"kZV@UCiEIavAZecrjWxa.zo\",\n      \"name\": \"string\",\n      \"status\": \"string\",\n      \"created_at\": 5926\n    },\n    {\n      \"email\": \"3mijzi2@TPYJfPShLXWhzCNSQkVOzSKrcVbFsMeN.gd\",\n      \"name\": \"string\",\n      \"status\": \"string\",\n      \"created_at\": 5585\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "e90efeb3-e8b9-47f0-956e-1f1395d091b7",
+      "name": "Analytics",
+      "description": {
+        "content": "Per-podcast analytics and report downloads.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "78b74b61-587a-4ccf-95a3-681fabd683ad",
+          "name": "Get podcast download report CSV URLs",
+          "request": {
+            "name": "Get podcast download report CSV URLs",
+            "description": {
+              "content": "Returns download URLs (grouped by month) for podcast download CSV reports.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "analytics",
+                "podcastReports"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "access_token",
+                  "value": "<string>",
+                  "description": "Access token issued by /v1/oauth/token (may also be sent via Authorization header)."
+                },
+                {
+                  "disabled": false,
+                  "key": "podcast_id",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "824804ef-a7ce-4b7b-b180-7310d9397aa8",
+              "name": "Map of months to one or more CSV URLs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "analytics",
+                    "podcastReports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "access_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "podcast_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"download_urls\": {\n    \"key_0\": \"https://htMZLuVmMNIfiLcCdTcAn.ulurJP5w,J-tCXHluA5Znb1MDCx\",\n    \"key_1\": \"http://lfrUHYANmeqJMv.orfRR7tjfe1CoHg4St0hdn8Evn,NXHXZyotQw13j4\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3b83978d-a4cc-4562-bf0e-04f0de8f4728",
+          "name": "Get podcast engagement report CSV URLs",
+          "request": {
+            "name": "Get podcast engagement report CSV URLs",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "analytics",
+                "podcastEngagementReports"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "access_token",
+                  "value": "<string>",
+                  "description": "Access token issued by /v1/oauth/token (may also be sent via Authorization header)."
+                },
+                {
+                  "disabled": false,
+                  "key": "podcast_id",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a95f3dae-4cd1-480b-bb98-16ee8db3e648",
+              "name": "Map of months to one or more CSV URLs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "analytics",
+                    "podcastEngagementReports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "access_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "podcast_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"download_urls\": {\n    \"key_0\": \"https://htMZLuVmMNIfiLcCdTcAn.ulurJP5w,J-tCXHluA5Znb1MDCx\",\n    \"key_1\": \"http://lfrUHYANmeqJMv.orfRR7tjfe1CoHg4St0hdn8Evn,NXHXZyotQw13j4\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bf0f3a1a-c5a3-41fa-945f-ec0aa3be44f7",
+          "name": "Get podcast analytic reports",
+          "request": {
+            "name": "Get podcast analytic reports",
+            "description": {
+              "content": "Returns a structured analytics report (followers, likes, comments, total_episode_length) for a podcast.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "analytics",
+                "podcastAnalyticReports"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "access_token",
+                  "value": "<string>",
+                  "description": "Access token issued by /v1/oauth/token (may also be sent via Authorization header)."
+                },
+                {
+                  "disabled": false,
+                  "key": "podcast_id",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "types",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ed895c51-8dd8-424b-95c4-412564c761e7",
+              "name": "Analytics report payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "analytics",
+                    "podcastAnalyticReports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "access_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "podcast_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "types",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": 4271,\n  \"key_1\": 2382\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.podbean.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.podbean.com/v1/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7448df22-0bac-4836-8ec8-05466a4367df",
+    "name": "Podbean API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Podbean's HTTP API for managing podcasts, episodes, private members,\nand analytics reports. Uses OAuth 2.0 with the client_credentials\ngrant (and a multi-podcast token endpoint for accounts that publish\nseveral podcasts). Endpoint paths reflect those documented at\nhttps://developers.podbean.com/podbean-api-docs/ and confirmed\nagainst open-source Podbean clients.\n\n\nContact Support:\n Name: Podbean Developer Documentation",
+      "type": "text/plain"
+    }
+  }
+}
