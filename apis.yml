@@ -41,6 +41,12 @@ apis:
       - type: Authentication
         url: https://developers.podbean.com/podbean-api-docs/#api-Authentication
 common:
+  - type: Authentication
+    url: authentication/podbean-api-authentication.yml
+  - type: OAuthScopes
+    url: scopes/podbean-api-scopes.yml
+  - url: https://blog.podbean.com/feed/
+    type: Blog
   - type: LinkedIn
     url: https://www.linkedin.com/company/podbean
   - type: Website

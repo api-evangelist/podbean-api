@@ -1,0 +1,32 @@
+generated: '2026-07-11'
+method: searched
+source: openapi/podbean-api-openapi.yml
+docs: https://developers.podbean.com/podbean-api-docs/#api-appendix-permissions
+schemes:
+- name: oauth2ClientCredentials
+  source: openapi/podbean-api-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.podbean.com/v1/oauth/token
+scopes:
+- scope: podcast_read
+  description: Read podcast
+  sources:
+  - https://developers.podbean.com/podbean-api-docs/#api-appendix-permissions
+- scope: podcast_update
+  description: Update podcast
+  sources:
+  - https://developers.podbean.com/podbean-api-docs/#api-appendix-permissions
+- scope: episode_read
+  description: Read episode
+  sources:
+  - https://developers.podbean.com/podbean-api-docs/#api-appendix-permissions
+- scope: episode_publish
+  description: Create/Update/Delete episode
+  sources:
+  - https://developers.podbean.com/podbean-api-docs/#api-appendix-permissions
+- scope: private_members
+  description: Create/Read/Update/Delete private members (only available to Business
+    Master Account with Client Credentials authentication)
+  sources:
+  - https://developers.podbean.com/podbean-api-docs/#api-appendix-permissions
