@@ -1,0 +1,36 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/podbean-api-openapi.yml
+summary:
+  types:
+  - apiKey
+  - http
+  - oauth2
+  api_key_in:
+  - query
+  oauth2_flows:
+  - clientCredentials
+schemes:
+- name: basicAuth
+  type: http
+  scheme: basic
+  description: HTTP Basic for OAuth token requests (client_id / client_secret).
+  sources:
+  - openapi/podbean-api-openapi.yml
+- name: oauth2ClientCredentials
+  type: oauth2
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.podbean.com/v1/oauth/token
+    scopes: 0
+  sources:
+  - openapi/podbean-api-openapi.yml
+- name: accessTokenQuery
+  type: apiKey
+  in: query
+  parameter: access_token
+  description: |-
+    Podbean accepts the OAuth bearer token as the `access_token`
+    query parameter on resource endpoints.
+  sources:
+  - openapi/podbean-api-openapi.yml
