@@ -41,6 +41,8 @@ apis:
       - type: Authentication
         url: https://developers.podbean.com/podbean-api-docs/#api-Authentication
 common:
+  - type: AgenticAccess
+    url: agentic-access/podbean-api-agentic-access.yml
   - type: DomainSecurity
     url: security/podbean-api-domain-security.yml
   - type: Authentication
