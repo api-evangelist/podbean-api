@@ -1,0 +1,106 @@
+openapi: 3.1.0
+info:
+  title: Podbean Analytics PrivateMembers API
+  version: v1
+  description: 'Podbean''s HTTP API for managing podcasts, episodes, private members,
+
+    and analytics reports. Uses OAuth 2.0 with the client_credentials
+
+    grant (and a multi-podcast token endpoint for accounts that publish
+
+    several podcasts). Endpoint paths reflect those documented at
+
+    https://developers.podbean.com/podbean-api-docs/ and confirmed
+
+    against open-source Podbean clients.
+
+    '
+  contact:
+    name: Podbean Developer Documentation
+    url: https://developers.podbean.com/podbean-api-docs/
+servers:
+- url: https://api.podbean.com
+  description: Podbean production API
+security:
+- oauth2ClientCredentials: []
+- accessTokenQuery: []
+tags:
+- name: PrivateMembers
+  description: Manage private podcast members.
+paths:
+  /v1/privateMembers:
+    get:
+      tags:
+      - PrivateMembers
+      operationId: listPrivateMembers
+      summary: List private members
+      description: List the private members on the authenticated podcast.
+      parameters:
+      - $ref: '#/components/parameters/AccessTokenQuery'
+      - in: query
+        name: offset
+        schema:
+          type: integer
+          minimum: 0
+          default: 0
+      - in: query
+        name: limit
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+          default: 20
+      responses:
+        '200':
+          description: A page of private members
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  private_members:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PrivateMember'
+components:
+  parameters:
+    AccessTokenQuery:
+      in: query
+      name: access_token
+      required: false
+      schema:
+        type: string
+      description: Access token issued by /v1/oauth/token (may also be sent via Authorization header).
+  schemas:
+    PrivateMember:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+        name:
+          type: string
+        status:
+          type: string
+        created_at:
+          type: integer
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic for OAuth token requests (client_id / client_secret).
+    oauth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.podbean.com/v1/oauth/token
+          scopes: {}
+    accessTokenQuery:
+      type: apiKey
+      in: query
+      name: access_token
+      description: 'Podbean accepts the OAuth bearer token as the `access_token`
+
+        query parameter on resource endpoints.
+
+        '

@@ -1,0 +1,151 @@
+openapi: 3.1.0
+info:
+  title: Podbean Analytics API
+  version: v1
+  description: 'Podbean''s HTTP API for managing podcasts, episodes, private members,
+
+    and analytics reports. Uses OAuth 2.0 with the client_credentials
+
+    grant (and a multi-podcast token endpoint for accounts that publish
+
+    several podcasts). Endpoint paths reflect those documented at
+
+    https://developers.podbean.com/podbean-api-docs/ and confirmed
+
+    against open-source Podbean clients.
+
+    '
+  contact:
+    name: Podbean Developer Documentation
+    url: https://developers.podbean.com/podbean-api-docs/
+servers:
+- url: https://api.podbean.com
+  description: Podbean production API
+security:
+- oauth2ClientCredentials: []
+- accessTokenQuery: []
+tags:
+- name: Analytics
+  description: Per-podcast analytics and report downloads.
+paths:
+  /v1/analytics/podcastReports:
+    get:
+      tags:
+      - Analytics
+      operationId: getPodcastReports
+      summary: Get podcast download report CSV URLs
+      description: Returns download URLs (grouped by month) for podcast download CSV reports.
+      parameters:
+      - $ref: '#/components/parameters/AccessTokenQuery'
+      - in: query
+        name: podcast_id
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: year
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Map of months to one or more CSV URLs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportUrlMap'
+  /v1/analytics/podcastEngagementReports:
+    get:
+      tags:
+      - Analytics
+      operationId: getPodcastEngagementReports
+      summary: Get podcast engagement report CSV URLs
+      parameters:
+      - $ref: '#/components/parameters/AccessTokenQuery'
+      - in: query
+        name: podcast_id
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: year
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Map of months to one or more CSV URLs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportUrlMap'
+  /v1/analytics/podcastAnalyticReports:
+    get:
+      tags:
+      - Analytics
+      operationId: getPodcastAnalyticReports
+      summary: Get podcast analytic reports
+      description: Returns a structured analytics report (followers, likes, comments, total_episode_length) for a podcast.
+      parameters:
+      - $ref: '#/components/parameters/AccessTokenQuery'
+      - in: query
+        name: podcast_id
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: types
+        schema:
+          type: string
+          description: Comma-separated report types (e.g. `followers,likes,comments,total_episode_length`).
+      responses:
+        '200':
+          description: Analytics report payload
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+components:
+  schemas:
+    ReportUrlMap:
+      type: object
+      properties:
+        download_urls:
+          type: object
+          additionalProperties:
+            oneOf:
+            - type: string
+              format: uri
+            - type: array
+              items:
+                type: string
+                format: uri
+  parameters:
+    AccessTokenQuery:
+      in: query
+      name: access_token
+      required: false
+      schema:
+        type: string
+      description: Access token issued by /v1/oauth/token (may also be sent via Authorization header).
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic for OAuth token requests (client_id / client_secret).
+    oauth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.podbean.com/v1/oauth/token
+          scopes: {}
+    accessTokenQuery:
+      type: apiKey
+      in: query
+      name: access_token
+      description: 'Podbean accepts the OAuth bearer token as the `access_token`
+
+        query parameter on resource endpoints.
+
+        '

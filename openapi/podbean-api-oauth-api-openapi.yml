@@ -1,0 +1,154 @@
+openapi: 3.1.0
+info:
+  title: Podbean Analytics OAuth API
+  version: v1
+  description: 'Podbean''s HTTP API for managing podcasts, episodes, private members,
+
+    and analytics reports. Uses OAuth 2.0 with the client_credentials
+
+    grant (and a multi-podcast token endpoint for accounts that publish
+
+    several podcasts). Endpoint paths reflect those documented at
+
+    https://developers.podbean.com/podbean-api-docs/ and confirmed
+
+    against open-source Podbean clients.
+
+    '
+  contact:
+    name: Podbean Developer Documentation
+    url: https://developers.podbean.com/podbean-api-docs/
+servers:
+- url: https://api.podbean.com
+  description: Podbean production API
+security:
+- oauth2ClientCredentials: []
+- accessTokenQuery: []
+tags:
+- name: OAuth
+  description: Token issuance endpoints.
+paths:
+  /v1/oauth/token:
+    post:
+      tags:
+      - OAuth
+      operationId: getAccessToken
+      summary: Request an access token
+      description: 'OAuth 2.0 token endpoint. Use HTTP Basic with client_id /
+
+        client_secret and POST `grant_type=client_credentials`.
+
+        '
+      security:
+      - basicAuth: []
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - grant_type
+              properties:
+                grant_type:
+                  type: string
+                  enum:
+                  - client_credentials
+                  - authorization_code
+                  - refresh_token
+                code:
+                  type: string
+                redirect_uri:
+                  type: string
+                  format: uri
+                refresh_token:
+                  type: string
+      responses:
+        '200':
+          description: Access token issued
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessToken'
+  /v1/oauth/multiplePodcastsToken:
+    post:
+      tags:
+      - OAuth
+      operationId: getMultiplePodcastsToken
+      summary: Request per-podcast access tokens
+      description: 'Returns a map of per-podcast access tokens for accounts with
+
+        multiple podcasts under the same Podbean app.
+
+        '
+      security:
+      - basicAuth: []
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - grant_type
+              properties:
+                grant_type:
+                  type: string
+                  enum:
+                  - client_credentials
+                podcast_id:
+                  type: string
+      responses:
+        '200':
+          description: Per-podcast tokens
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MultiplePodcastsToken'
+components:
+  schemas:
+    AccessToken:
+      type: object
+      properties:
+        access_token:
+          type: string
+        token_type:
+          type: string
+        expires_in:
+          type: integer
+        scope:
+          type: string
+    MultiplePodcastsToken:
+      type: object
+      properties:
+        podcast_tokens:
+          type: array
+          items:
+            type: object
+            properties:
+              podcast_id:
+                type: string
+              access_token:
+                type: string
+              expires_in:
+                type: integer
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic for OAuth token requests (client_id / client_secret).
+    oauth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.podbean.com/v1/oauth/token
+          scopes: {}
+    accessTokenQuery:
+      type: apiKey
+      in: query
+      name: access_token
+      description: 'Podbean accepts the OAuth bearer token as the `access_token`
+
+        query parameter on resource endpoints.
+
+        '
