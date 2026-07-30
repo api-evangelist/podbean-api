@@ -7,9 +7,22 @@ description: >-
   and provides programmatic access to podcasts, episodes, analytics, and account
   management resources.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/podbean-api.png
 tags:
   - Podcasts
   - Podcasting
@@ -22,24 +35,73 @@ modified: '2026-04-28'
 url: https://raw.githubusercontent.com/api-evangelist/podbean-api/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-  - aid: podbean-api:podbean-api
-    name: Podbean API
-    description: >-
-      This is for third-party apps to connect to Podbean in order to manage a user's
-      podcast. To manage your own podcast via API, please use Client Credentials
-      and Get Multiple Podcasts Tokens. Provides OAuth 2.0 authenticated access
-      to manage podcasts and episodes.
-    humanURL: https://developers.podbean.com/podbean-api-docs/
-    baseURL: https://api.podbean.com/v1
-    tags:
-      - Podcasts
-      - Audio
-      - OAuth
-    properties:
-      - type: Documentation
-        url: https://developers.podbean.com/podbean-api-docs/
-      - type: Authentication
-        url: https://developers.podbean.com/podbean-api-docs/#api-Authentication
+- aid: podbean-api:podbean-api
+  name: Podbean API
+  description: >-
+    This is for third-party apps to connect to Podbean in order to manage a user's podcast. To manage
+    your own podcast via API, please use Client Credentials and Get Multiple Podcasts Tokens. Provides
+    OAuth 2.0 authenticated access to manage podcasts and episodes.
+  humanURL: https://developers.podbean.com/podbean-api-docs/
+  baseURL: https://api.podbean.com/v1
+  tags:
+  - Podcasts
+  - Audio
+  - OAuth
+  properties:
+  - type: Documentation
+    url: https://developers.podbean.com/podbean-api-docs/
+  - type: Authentication
+    url: https://developers.podbean.com/podbean-api-docs/#api-Authentication
+- aid: podbean-api:podbean-api-analytics-api
+  name: Podbean API Analytics API
+  description: Per-podcast analytics and report downloads.
+  humanURL: https://developers.podbean.com/podbean-api-docs/
+  baseURL: https://api.podbean.com/v1
+  tags:
+  - Analytics
+  properties:
+  - type: OpenAPI
+    url: openapi/podbean-api-analytics-api-openapi.yml
+- aid: podbean-api:podbean-api-episodes-api
+  name: Podbean API Episodes API
+  description: List and inspect episodes.
+  humanURL: https://developers.podbean.com/podbean-api-docs/
+  baseURL: https://api.podbean.com/v1
+  tags:
+  - Episodes
+  properties:
+  - type: OpenAPI
+    url: openapi/podbean-api-episodes-api-openapi.yml
+- aid: podbean-api:podbean-api-oauth-api
+  name: Podbean API OAuth API
+  description: Token issuance endpoints.
+  humanURL: https://developers.podbean.com/podbean-api-docs/
+  baseURL: https://api.podbean.com/v1
+  tags:
+  - OAuth
+  properties:
+  - type: OpenAPI
+    url: openapi/podbean-api-oauth-api-openapi.yml
+- aid: podbean-api:podbean-api-podcasts-api
+  name: Podbean API Podcasts API
+  description: List podcasts in the account.
+  humanURL: https://developers.podbean.com/podbean-api-docs/
+  baseURL: https://api.podbean.com/v1
+  tags:
+  - Podcasts
+  properties:
+  - type: OpenAPI
+    url: openapi/podbean-api-podcasts-api-openapi.yml
+- aid: podbean-api:podbean-api-privatemembers-api
+  name: Podbean API PrivateMembers API
+  description: Manage private podcast members.
+  humanURL: https://developers.podbean.com/podbean-api-docs/
+  baseURL: https://api.podbean.com/v1
+  tags:
+  - PrivateMembers
+  properties:
+  - type: OpenAPI
+    url: openapi/podbean-api-privatemembers-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/podbean-api-agentic-access.yml
