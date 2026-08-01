@@ -1,0 +1,22 @@
+{
+  "provider": "podbean-api",
+  "sources": [
+    "podbean-api-analytics-api-openapi.yml",
+    "podbean-api-episodes-api-openapi.yml",
+    "podbean-api-oauth-api-openapi.yml",
+    "podbean-api-podcasts-api-openapi.yml",
+    "podbean-api-privatemembers-api-openapi.yml"
+  ],
+  "outputs": [
+    "podbean-api-analytics-api-openapi.yml",
+    "podbean-api-episodes-api-openapi.yml",
+    "podbean-api-oauth-api-openapi.yml",
+    "podbean-api-podcasts-api-openapi.yml",
+    "podbean-api-privatemembers-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
