@@ -1,0 +1,155 @@
+{
+  "item": [
+    {
+      "id": "391ee938-549a-4c13-b45d-63ec5387ca29",
+      "name": "PrivateMembers",
+      "description": {
+        "content": "Manage private podcast members.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a4163f67-6549-4b5d-87de-f6c5b619364b",
+          "name": "List private members",
+          "request": {
+            "name": "List private members",
+            "description": {
+              "content": "List the private members on the authenticated podcast.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "privateMembers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "access_token",
+                  "value": "<string>",
+                  "description": "Access token issued by /v1/oauth/token (may also be sent via Authorization header)."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "26ae6d72-e40f-432b-a8bd-27f89c022f49",
+              "name": "A page of private members",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "privateMembers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "access_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"private_members\": [\n    {\n      \"email\": \"g3ZpJ6@clodZJjxEDsgnj.rp\",\n      \"name\": \"string\",\n      \"status\": \"string\",\n      \"created_at\": 6464\n    },\n    {\n      \"email\": \"6aW-gFh@lSxHn.utc\",\n      \"name\": \"string\",\n      \"status\": \"string\",\n      \"created_at\": 3381\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.podbean.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.podbean.com/v1/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "427cd0df-419d-43e2-ad34-b06ffeef27df",
+    "name": "Podbean Analytics PrivateMembers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Podbean's HTTP API for managing podcasts, episodes, private members,\nand analytics reports. Uses OAuth 2.0 with the client_credentials\ngrant (and a multi-podcast token endpoint for accounts that publish\nseveral podcasts). Endpoint paths reflect those documented at\nhttps://developers.podbean.com/podbean-api-docs/ and confirmed\nagainst open-source Podbean clients.\n\n\nContact Support:\n Name: Podbean Developer Documentation",
+      "type": "text/plain"
+    }
+  }
+}

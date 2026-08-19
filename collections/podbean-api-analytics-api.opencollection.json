@@ -1,0 +1,116 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Podbean Analytics API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.podbean.com/v1/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Analytics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get podcast download report CSV URLs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podbean.com/v1/analytics/podcastReports",
+            "params": [
+              {
+                "name": "access_token",
+                "value": "",
+                "type": "query",
+                "description": "Access token issued by /v1/oauth/token (may also be sent via Authorization header)."
+              },
+              {
+                "name": "podcast_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns download URLs (grouped by month) for podcast download CSV reports."
+        },
+        {
+          "info": {
+            "name": "Get podcast engagement report CSV URLs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podbean.com/v1/analytics/podcastEngagementReports",
+            "params": [
+              {
+                "name": "access_token",
+                "value": "",
+                "type": "query",
+                "description": "Access token issued by /v1/oauth/token (may also be sent via Authorization header)."
+              },
+              {
+                "name": "podcast_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get podcast engagement report CSV URLs"
+        },
+        {
+          "info": {
+            "name": "Get podcast analytic reports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podbean.com/v1/analytics/podcastAnalyticReports",
+            "params": [
+              {
+                "name": "access_token",
+                "value": "",
+                "type": "query",
+                "description": "Access token issued by /v1/oauth/token (may also be sent via Authorization header)."
+              },
+              {
+                "name": "podcast_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "types",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a structured analytics report (followers, likes, comments, total_episode_length) for a podcast."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,155 @@
+{
+  "item": [
+    {
+      "id": "07497260-c28d-4f17-aa41-fbff87160b69",
+      "name": "Podcasts",
+      "description": {
+        "content": "List podcasts in the account.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1d4226d6-88c4-4aa3-83c1-b9759acb37ef",
+          "name": "List podcasts",
+          "request": {
+            "name": "List podcasts",
+            "description": {
+              "content": "List the podcasts owned by the authenticated account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "podcasts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "access_token",
+                  "value": "<string>",
+                  "description": "Access token issued by /v1/oauth/token (may also be sent via Authorization header)."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "49956097-53b1-49b0-9c7f-ae91e6ca42ad",
+              "name": "A page of podcasts",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "podcasts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "access_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 3149,\n  \"offset\": 8762,\n  \"limit\": 5418,\n  \"has_more\": false,\n  \"podcasts\": [\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"desc\": \"string\",\n      \"logo\": \"http://nMyGCHjHObGicxkBjcNiJeNAH.rrqlsGMAIHWcbh+gVPqQBMuS1prrR7zRLX0\",\n      \"website\": \"http://uwipsMoukZIFWORdhEalEEcmVD.coUyPJUMlnPgoB3xxzTHy3s7yYwEyDi\",\n      \"category_name\": \"string\",\n      \"allow_episode_type\": [\n        \"string\",\n        \"string\"\n      ],\n      \"copyright\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"desc\": \"string\",\n      \"logo\": \"https://nesoaHPrdLL.xuNSfLp9zrSXAVIEZ56S4ZYw2SGUzT5Ksl1Qp1aa1LOdM0Q8rlGyO\",\n      \"website\": \"https://BJGQOphtCUpxcx.eboky\",\n      \"category_name\": \"string\",\n      \"allow_episode_type\": [\n        \"string\",\n        \"string\"\n      ],\n      \"copyright\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.podbean.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.podbean.com/v1/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "93bfc566-f560-44a9-bfb9-b649f51ee8f2",
+    "name": "Podbean Analytics Podcasts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Podbean's HTTP API for managing podcasts, episodes, private members,\nand analytics reports. Uses OAuth 2.0 with the client_credentials\ngrant (and a multi-podcast token endpoint for accounts that publish\nseveral podcasts). Endpoint paths reflect those documented at\nhttps://developers.podbean.com/podbean-api-docs/ and confirmed\nagainst open-source Podbean clients.\n\n\nContact Support:\n Name: Podbean Developer Documentation",
+      "type": "text/plain"
+    }
+  }
+}

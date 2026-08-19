@@ -1,0 +1,155 @@
+{
+  "item": [
+    {
+      "id": "5c006b1c-80ca-4ebc-9913-66fdac38454a",
+      "name": "Episodes",
+      "description": {
+        "content": "List and inspect episodes.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6447b66c-2109-46e0-9700-c9baf95ff69b",
+          "name": "List episodes",
+          "request": {
+            "name": "List episodes",
+            "description": {
+              "content": "List episodes for the authenticated podcast.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "episodes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "access_token",
+                  "value": "<string>",
+                  "description": "Access token issued by /v1/oauth/token (may also be sent via Authorization header)."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "325a55c7-c4c3-4afb-964f-5c41a5552e8d",
+              "name": "A page of episodes",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "episodes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "access_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 4542,\n  \"offset\": 8233,\n  \"limit\": 8981,\n  \"has_more\": true,\n  \"episodes\": [\n    {\n      \"id\": \"string\",\n      \"podcast_id\": \"string\",\n      \"title\": \"string\",\n      \"content\": \"string\",\n      \"logo\": \"https://JyfYhbyrDVOGHivP.qwyphHiQ1CZ,7KUye1,mUGPGbS8U,wAyZn5QWbXBsURYLGl.VY2Af7fSbKQaWDVn4lTuw\",\n      \"media_url\": \"http://LVF.yywdZkenTgl86WSWjnYgfk1,TlV+,LjzsxZX\",\n      \"player_url\": \"http://DSLFLsuwBVTPs.adynkkN9U,,vtawF,CzlItHZOYTaKyzjNsMHCv\",\n      \"permalink_url\": \"http://dkymUnqH.xsawrOqBKaIL.aNlw8yudZxmGWMSksWSJJkd0YLn4n+y4XpYdXjFWgEhpC-\",\n      \"publish_time\": 7056,\n      \"duration\": 7341,\n      \"status\": \"string\",\n      \"type\": \"premium\",\n      \"season_number\": 3747,\n      \"episode_number\": 4158,\n      \"apple_episode_type\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"podcast_id\": \"string\",\n      \"title\": \"string\",\n      \"content\": \"string\",\n      \"logo\": \"http://sUZqfHn.jnQAIn1bcV29ybKgSylDdv8AyDEq0lT11c2lbK489wIvsPO8ghGEA\",\n      \"media_url\": \"https://kWidslenoptkFZQpWJNtOcwagTCTN.qqvgjOHqtsKwy6zQrIFvCuwELxTNb1dnbcClTkSKp36KmRwDfAJw05MY7jz\",\n      \"player_url\": \"http://iYpZ.srdglCihHzDhN8grA0gGeIHexeAI1hrWMDYG8jRbf7zBKfEZExFWiZ8kgepr.5l+xUkBKopb\",\n      \"permalink_url\": \"https://AtqEVxlpbwuNkyANNebAcpFlUwIN.eivr34hbjWwAcsSTQKQ6xNUmUSlAHCFnCT-UNRnXL-E,YtGqyVjVhIwIIr\",\n      \"publish_time\": 2086,\n      \"duration\": 8449,\n      \"status\": \"string\",\n      \"type\": \"premium\",\n      \"season_number\": 1860,\n      \"episode_number\": 1735,\n      \"apple_episode_type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.podbean.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.podbean.com/v1/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bd2d3802-492f-443f-9559-b4b83c3165d0",
+    "name": "Podbean Analytics Episodes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Podbean's HTTP API for managing podcasts, episodes, private members,\nand analytics reports. Uses OAuth 2.0 with the client_credentials\ngrant (and a multi-podcast token endpoint for accounts that publish\nseveral podcasts). Endpoint paths reflect those documented at\nhttps://developers.podbean.com/podbean-api-docs/ and confirmed\nagainst open-source Podbean clients.\n\n\nContact Support:\n Name: Podbean Developer Documentation",
+      "type": "text/plain"
+    }
+  }
+}

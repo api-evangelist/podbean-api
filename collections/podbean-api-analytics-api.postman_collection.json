@@ -1,0 +1,383 @@
+{
+  "item": [
+    {
+      "id": "42e754e3-0bdf-4b46-9d6a-9a0c88cacb27",
+      "name": "Analytics",
+      "description": {
+        "content": "Per-podcast analytics and report downloads.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "35cd977c-1c87-457b-848c-4849a5617ec4",
+          "name": "Get podcast download report CSV URLs",
+          "request": {
+            "name": "Get podcast download report CSV URLs",
+            "description": {
+              "content": "Returns download URLs (grouped by month) for podcast download CSV reports.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "analytics",
+                "podcastReports"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "access_token",
+                  "value": "<string>",
+                  "description": "Access token issued by /v1/oauth/token (may also be sent via Authorization header)."
+                },
+                {
+                  "disabled": false,
+                  "key": "podcast_id",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e83c74b9-39a6-4db3-a9d8-d52afb4fef01",
+              "name": "Map of months to one or more CSV URLs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "analytics",
+                    "podcastReports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "access_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "podcast_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"download_urls\": {\n    \"key_0\": \"http://ZjaQXZcKniDaqHvjathXCLTSu.bzygx+9rcjTx.rZD7tBLl+kszg-\",\n    \"key_1\": \"https://BjCcZiFWwgOStGNvrzoF.yoK3QsHSvtum\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e036e21a-2a87-406a-8f92-c9da35bb2cb8",
+          "name": "Get podcast engagement report CSV URLs",
+          "request": {
+            "name": "Get podcast engagement report CSV URLs",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "analytics",
+                "podcastEngagementReports"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "access_token",
+                  "value": "<string>",
+                  "description": "Access token issued by /v1/oauth/token (may also be sent via Authorization header)."
+                },
+                {
+                  "disabled": false,
+                  "key": "podcast_id",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ba644c97-14e5-492d-8271-9bf585bd842b",
+              "name": "Map of months to one or more CSV URLs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "analytics",
+                    "podcastEngagementReports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "access_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "podcast_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"download_urls\": {\n    \"key_0\": \"http://ZjaQXZcKniDaqHvjathXCLTSu.bzygx+9rcjTx.rZD7tBLl+kszg-\",\n    \"key_1\": \"https://BjCcZiFWwgOStGNvrzoF.yoK3QsHSvtum\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ccc49db-3e74-4211-b11f-5892efddeedc",
+          "name": "Get podcast analytic reports",
+          "request": {
+            "name": "Get podcast analytic reports",
+            "description": {
+              "content": "Returns a structured analytics report (followers, likes, comments, total_episode_length) for a podcast.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "analytics",
+                "podcastAnalyticReports"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "access_token",
+                  "value": "<string>",
+                  "description": "Access token issued by /v1/oauth/token (may also be sent via Authorization header)."
+                },
+                {
+                  "disabled": false,
+                  "key": "podcast_id",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "types",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "56b7cf10-10a5-4e9b-bce9-a5b867ca8d3b",
+              "name": "Analytics report payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "analytics",
+                    "podcastAnalyticReports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "access_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "podcast_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "types",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": 6814.251471402392\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.podbean.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.podbean.com/v1/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "875bcefc-4fed-4d7b-b7fb-42bed03199bc",
+    "name": "Podbean Analytics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Podbean's HTTP API for managing podcasts, episodes, private members,\nand analytics reports. Uses OAuth 2.0 with the client_credentials\ngrant (and a multi-podcast token endpoint for accounts that publish\nseveral podcasts). Endpoint paths reflect those documented at\nhttps://developers.podbean.com/podbean-api-docs/ and confirmed\nagainst open-source Podbean clients.\n\n\nContact Support:\n Name: Podbean Developer Documentation",
+      "type": "text/plain"
+    }
+  }
+}
