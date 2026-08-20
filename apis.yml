@@ -28,6 +28,13 @@ tags:
   - Podcasting
   - Audio
   - Media
+  - Authentication
+  - Episodes
+tags_raw:
+  - Podcasts
+  - Podcasting
+  - Audio
+  - Media
   - OAuth
   - Episodes
 created: '2025-05-02'
@@ -44,6 +51,10 @@ apis:
   humanURL: https://developers.podbean.com/podbean-api-docs/
   baseURL: https://api.podbean.com/v1
   tags:
+  - Podcasts
+  - Audio
+  - Authentication
+  tags_raw:
   - Podcasts
   - Audio
   - OAuth
@@ -78,6 +89,8 @@ apis:
   humanURL: https://developers.podbean.com/podbean-api-docs/
   baseURL: https://api.podbean.com/v1
   tags:
+  - Authentication
+  tags_raw:
   - OAuth
   properties:
   - type: OpenAPI
