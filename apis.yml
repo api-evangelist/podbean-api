@@ -127,6 +127,9 @@ apis:
   - type: OpenAPI
     url: openapi/podbean-api-privatemembers-api-openapi.yml
 common:
+  - type: CapabilityMap
+    url: capabilities/podbean-api-capability-edges.yml
+    name: Podbean API Business Capability Map
   - type: AgenticAccess
     url: agentic-access/podbean-api-agentic-access.yml
   - type: DomainSecurity
