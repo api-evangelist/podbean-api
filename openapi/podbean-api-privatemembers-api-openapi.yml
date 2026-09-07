@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Podbean Analytics PrivateMembers API
+  title: Podbean Analytics Private Members API
   version: v1
   description: 'Podbean''s HTTP API for managing podcasts, episodes, private members,
 
@@ -63,14 +63,6 @@ paths:
                     items:
                       $ref: '#/components/schemas/PrivateMember'
 components:
-  parameters:
-    AccessTokenQuery:
-      in: query
-      name: access_token
-      required: false
-      schema:
-        type: string
-      description: Access token issued by /v1/oauth/token (may also be sent via Authorization header).
   schemas:
     PrivateMember:
       type: object
@@ -84,6 +76,14 @@ components:
           type: string
         created_at:
           type: integer
+  parameters:
+    AccessTokenQuery:
+      in: query
+      name: access_token
+      required: false
+      schema:
+        type: string
+      description: Access token issued by /v1/oauth/token (may also be sent via Authorization header).
   securitySchemes:
     basicAuth:
       type: http

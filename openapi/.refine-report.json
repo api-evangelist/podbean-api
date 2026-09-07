@@ -17,6 +17,13 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "podbean-api-analytics-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "podbean-api-episodes-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "podbean-api-oauth-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "podbean-api-podcasts-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "podbean-api-privatemembers-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }
